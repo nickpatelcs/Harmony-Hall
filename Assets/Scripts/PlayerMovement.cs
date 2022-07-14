@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,9 +34,13 @@ public class PlayerMovement : MonoBehaviour
             characterController.Move(new Vector3(0, velocity, 0));
         }
 
-        if(gameObject.transform.position.z > -11 && gameObject.transform.position.z < -7 && gameObject.transform.position.x <= -19)
+        if(gameObject.transform.position.z > -11 && gameObject.transform.position.z < -7 && gameObject.transform.position.x <= -19 && SceneManager.GetActiveScene().name == "OutsideScene")
         {
-            gameObject.SetActive(false);
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 }
