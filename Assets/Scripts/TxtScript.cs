@@ -34,7 +34,7 @@ public class TxtScript : MonoBehaviour
         {
             Current = "Click the paintings to hear their music! Think about how the colors and sounds make you feel. Then you will label this section of the museum with the emotion that best represents these art pieces.";
             txt.text = Current;
-            isActive = false;
+            isActive = true;
         }
     }
 }
