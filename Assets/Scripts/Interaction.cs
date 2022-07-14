@@ -16,20 +16,10 @@ public class Interaction : MonoBehaviour
         audiosource.Play();
         StartCoroutine(WaitForSound(sound));
 
+        //wait for sound to finish playing and then reset
         IEnumerator WaitForSound(AudioClip sound)
         {
             yield return new WaitUntil(()=> audiosource.isPlaying == false);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
