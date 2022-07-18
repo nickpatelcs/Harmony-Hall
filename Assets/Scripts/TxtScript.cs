@@ -10,10 +10,14 @@ public class TxtScript : MonoBehaviour
     string Current = "Welcome to your Mueseum! As a curator, your first job is to design each exhibit. To do this, you will need to connect each art piece with emotions and how they make you feel.\n(Press Space to show/hide)";
     public GameObject player;
     bool isActive = false;
+    bool finished = false;
+    public TMP_InputField inputField;
+    public GameObject inputFieldObj;
     
     void Start()
     {
         txt.text = Current;
+        inputFieldObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +39,17 @@ public class TxtScript : MonoBehaviour
             Current = "Click the paintings to hear their music! Think about how the colors and sounds make you feel. Then you will label this section of the museum with the emotion that best represents these art pieces.";
             txt.text = Current;
             isActive = true;
+        }
+        if(finished)
+        {
+            Current = "Type the emotion that best fits with how these art pieces made you feel in the box below!";
+            inputFieldObj.SetActive(true);
+            inputField.ActivateInputField();
+            txt.text = Current;
+        }
+        if(Input.GetKeyDown("e"))
+        {
+            finished = true;
         }
     }
 }
