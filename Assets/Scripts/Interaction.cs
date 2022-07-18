@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    public GameObject art;
     public AudioClip sound;
-    private AudioSource audiosource;
+    public AudioSource audiosource;
 
     //play sound when mouse clicks object
-    public void OnMouseDown()
+    public void playSound()
     {
         audiosource = GetComponent<AudioSource>();
         audiosource.clip = sound;
