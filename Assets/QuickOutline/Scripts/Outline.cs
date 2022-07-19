@@ -60,7 +60,7 @@ public class Outline : MonoBehaviour {
   private Color outlineColor = Color.white;
 
   [SerializeField, Range(0f, 100f)]
-  private float outlineWidth = 6f;
+  private float outlineWidth = 2f;
 
   [Header("Optional")]
 
@@ -97,6 +97,26 @@ public class Outline : MonoBehaviour {
 
     // Apply material properties immediately
     needsUpdate = true;
+
+    foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>())
+         {
+             if (skinnedMeshRenderer.sharedMesh.subMeshCount > 1)
+             {
+                 skinnedMeshRenderer.sharedMesh.subMeshCount = skinnedMeshRenderer.sharedMesh.subMeshCount + 1;
+                 skinnedMeshRenderer.sharedMesh.SetTriangles(skinnedMeshRenderer.sharedMesh.triangles, skinnedMeshRenderer.sharedMesh.subMeshCount - 1);
+             }
+ 
+         }
+ 
+         foreach (var meshFilter in GetComponentsInChildren<MeshFilter>())
+         {
+             if (meshFilter.sharedMesh.subMeshCount > 1)
+             {
+                 meshFilter.sharedMesh.subMeshCount = meshFilter.sharedMesh.subMeshCount + 1;
+                 meshFilter.sharedMesh.SetTriangles(meshFilter.sharedMesh.triangles, meshFilter.sharedMesh.subMeshCount - 1);
+             }
+         }
+         
   }
 
   void OnEnable() {

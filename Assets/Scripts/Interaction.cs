@@ -7,7 +7,7 @@ public class Interaction : MonoBehaviour
     public AudioClip sound;
     public AudioSource audiosource;
 
-    //play sound when mouse clicks object
+    
     public void playSound()
     {
         audiosource = GetComponent<AudioSource>();
@@ -19,6 +19,8 @@ public class Interaction : MonoBehaviour
         IEnumerator WaitForSound(AudioClip sound)
         {
             yield return new WaitUntil(()=> audiosource.isPlaying == false);
+            GameObject.Find("Canvas").GetComponent<TxtScript>().Finished();
         }
+        
     }
 }
