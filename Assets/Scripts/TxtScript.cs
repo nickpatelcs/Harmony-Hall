@@ -14,16 +14,31 @@ public class TxtScript : MonoBehaviour
     public TMP_InputField inputField;
     public GameObject inputFieldObj;
     List<string> myList = new List<string>();
+    public GameObject wheel;
     
     void Start()
     {
         txt.text = Current;
         inputFieldObj.SetActive(false);
+        myList.Add("Serenity");
+        myList.Add("Sadness");
+        myList.Add("Rage");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("q"))
+        {
+            if(wheel.activeSelf)
+            {
+                wheel.SetActive(false);
+            }
+            else
+            {
+                wheel.SetActive(true);
+            }
+        }
         if(Input.GetKeyDown("space"))
         {
             if(txt.text == "")
@@ -37,7 +52,7 @@ public class TxtScript : MonoBehaviour
         }
         if(player.transform.position.x < -5 && !isActive)
         {
-            Current = "Click the paintings to hear their music! Think about how the colors and sounds make you feel. Then you will label this section of the museum with the emotion that best represents these art pieces.";
+            Current = "Click the paintings to hear their music! Think about how the colors and sounds make you feel. Then you will label this section of the museum with the emotion that best represents these art pieces. (Press Q to show/hide an emotion wheel!)";
             txt.text = Current;
             isActive = true;
         }
