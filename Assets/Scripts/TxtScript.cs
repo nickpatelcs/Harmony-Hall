@@ -51,6 +51,10 @@ public class TxtScript : MonoBehaviour
             finished=0;
             player.GetComponent<PlayerMovement>().enabled = true;
         }
+        if(player.transform.position.z > 15)
+        {
+            txt.text = "Your museum is now ready! \n" + "Room 1: " + myList[0] + "\n" + "Room 2: " + myList[1] + "\n" + "Room 3: " + myList[2];
+        }
     }
 
     public void Finished()
