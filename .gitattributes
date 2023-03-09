@@ -87,5 +87,4 @@
 
 #linguist-detector
 * linguist-vendored
-*.aspx linguist-detectable=false
-*.cs linguist-detectable=true
+*.cs linguist-detectable=false
