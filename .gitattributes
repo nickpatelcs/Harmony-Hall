@@ -89,3 +89,4 @@
 *.cs linguist-detectable=true
 *.csmeta linguist-detectable=true
 *.aspx linguist-detectable=false
+*.shader linguist-detectable=fals
