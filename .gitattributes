@@ -87,4 +87,5 @@
 
 #linguist-detector
 *.cs linguist-detectable=true
+*.csmeta linguist-detectable=true
 *.aspx linguist-detectable=false
